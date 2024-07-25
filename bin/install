@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+set -u
+
+echo ${ASDF_INSTALL_TYPE}
+echo ${ASDF_INSTALL_VERSION}
+echo ${ASDF_INSTALL_PATH}
