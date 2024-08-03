@@ -19,6 +19,5 @@ echo
 echo  ASDF_CMD_FILE:           ${ASDF_CMD_FILE}
 
 git clone --filter=blob:none --no-checkout --branch ${ASDF_INSTALL_VERSION} --depth 1 --sparse https://github.com/karandit/til ${ASDF_INSTALL_PATH}
-#cd til
-#git sparse-checkout add scripts
-#git checkout
+git -C ${ASDF_INSTALL_PATH} sparse-checkout add scripts
+git -C ${ASDF_INSTALL_PATH} checkout
