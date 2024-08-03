@@ -11,7 +11,7 @@ function sort_versions() {
 }
 
 list_all_versions() {
-  git ls-remote --tags --refs https://github.com/karandit/terramake.git |
+  git ls-remote --tags --refs https://github.com/karandit/til.git |
     grep -o 'refs/tags/.*' |
     cut -d/ -f3- |
     sed 's/^v//'
