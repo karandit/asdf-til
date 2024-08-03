@@ -2,7 +2,7 @@
 
 set -e
 set -o pipefail
-set -u
+#set -u
 
 echo  ASDF_INSTALL_TYPE:       ${ASDF_INSTALL_TYPE}
 echo  ASDF_INSTALL_VERSION:    ${ASDF_INSTALL_VERSION}
