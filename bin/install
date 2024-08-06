@@ -18,6 +18,8 @@ echo  ASDF_PLUGIN_POST_REF:    ${ASDF_PLUGIN_POST_REF}
 echo
 echo  ASDF_CMD_FILE:           ${ASDF_CMD_FILE}
 
+MY_PATH="$(dirname -- "${BASH_SOURCE[0]}")"
+echo MY_PATH: $MY_PATH
 git clone --filter=blob:none --no-checkout --branch ${ASDF_INSTALL_VERSION} --depth 1 --sparse https://github.com/karandit/til ${ASDF_INSTALL_PATH}
 git -C ${ASDF_INSTALL_PATH} sparse-checkout add scripts
 git -C ${ASDF_INSTALL_PATH} checkout
