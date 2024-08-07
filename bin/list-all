@@ -11,7 +11,10 @@ function sort_versions() {
 }
 
 list_all_versions() {
-  git ls-remote --tags --refs https://github.com/karandit/til.git |
+  PLUGIN_BIN_PATH="$(dirname -- "${BASH_SOURCE[0]}")"
+  REPO_URL_PATH="$PLUGIN_BIN_PATH/../repo_url"
+  REPO_URL="$(head $REPO_URL_PATH)"
+  git ls-remote --tags --refs ${REPO_URL} |
     grep -o 'refs/tags/.*' |
     cut -d/ -f3- |
     sed 's/^v//'

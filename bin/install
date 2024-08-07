@@ -2,26 +2,12 @@
 
 set -e
 set -o pipefail
-#set -u
-
-echo  ASDF_INSTALL_TYPE:       ${ASDF_INSTALL_TYPE}
-echo  ASDF_INSTALL_VERSION:    ${ASDF_INSTALL_VERSION}
-echo  ASDF_INSTALL_PATH:       ${ASDF_INSTALL_PATH}
-echo
-echo  ASDF_CONCURRENCY:        ${ASDF_CONCURRENCY}
-echo  ASDF_DOWNLOAD_PATH:      ${ASDF_DOWNLOAD_PATH}
-echo
-echo  ASDF_PLUGIN_PATH:        ${ASDF_PLUGIN_PATH}
-echo  ASDF_PLUGIN_SOURCE_URL:  ${ASDF_PLUGIN_SOURCE_URL}
-echo  ASDF_PLUGIN_PREV_REF:    ${ASDF_PLUGIN_PREV_REF}
-echo  ASDF_PLUGIN_POST_REF:    ${ASDF_PLUGIN_POST_REF}
-echo
-echo  ASDF_CMD_FILE:           ${ASDF_CMD_FILE}
+set -u
 
 PLUGIN_BIN_PATH="$(dirname -- "${BASH_SOURCE[0]}")"
 REPO_URL_PATH="$PLUGIN_BIN_PATH/../repo_url"
 REPO_URL="$(head $REPO_URL_PATH)"
-echo REPO_URL: ${REPO_URL}
+echo Downloading from ${REPO_URL} version ${ASDF_INSTALL_VERSION}
 
 git clone --filter=blob:none --no-checkout --branch ${ASDF_INSTALL_VERSION} --depth 1 --sparse ${REPO_URL} ${ASDF_INSTALL_PATH}
 git -C ${ASDF_INSTALL_PATH} sparse-checkout add scripts
