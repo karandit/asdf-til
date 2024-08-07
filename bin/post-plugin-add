@@ -2,23 +2,10 @@
 
 set -e
 set -o pipefail
-#set -u
+set -u
 
-echo "V---------------- post-plugin-add----------"
-echo  ASDF_INSTALL_TYPE:       ${ASDF_INSTALL_TYPE}
-echo  ASDF_INSTALL_VERSION:    ${ASDF_INSTALL_VERSION}
-echo  ASDF_INSTALL_PATH:       ${ASDF_INSTALL_PATH}
-echo
-echo  ASDF_CONCURRENCY:        ${ASDF_CONCURRENCY}
-echo  ASDF_DOWNLOAD_PATH:      ${ASDF_DOWNLOAD_PATH}
-echo
-echo  ASDF_PLUGIN_PATH:        ${ASDF_PLUGIN_PATH}
-echo  ASDF_PLUGIN_SOURCE_URL:  ${ASDF_PLUGIN_SOURCE_URL}
-echo  ASDF_PLUGIN_PREV_REF:    ${ASDF_PLUGIN_PREV_REF}
-echo  ASDF_PLUGIN_POST_REF:    ${ASDF_PLUGIN_POST_REF}
-echo
-echo  ASDF_CMD_FILE:           ${ASDF_CMD_FILE}
-echo "^ ~~~~~~~~~~~~~~~ post-plugin-add~~~~~~~~~"
+# ${ASDF_PLUGIN_PATH} on macOS is /Users/<YOUR_USER>/asdf/plugins/<PLUGIN_NAME>
+# ${ASDF_PLUGIN_SOURCE_URL} is the asdf plugin's git repo url
 tool_url=$(dirname ${ASDF_PLUGIN_SOURCE_URL})
 tool_name=$(basename ${ASDF_PLUGIN_PATH})
 echo ${tool_url}/${tool_name} > ${ASDF_PLUGIN_PATH}/repo_url 
