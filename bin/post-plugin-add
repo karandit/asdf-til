@@ -19,5 +19,6 @@ echo  ASDF_PLUGIN_POST_REF:    ${ASDF_PLUGIN_POST_REF}
 echo
 echo  ASDF_CMD_FILE:           ${ASDF_CMD_FILE}
 echo "^ ~~~~~~~~~~~~~~~ post-plugin-add~~~~~~~~~"
+tool_url=$(dirname ${ASDF_PLUGIN_SOURCE_URL})
 tool_name=$(basename ${ASDF_PLUGIN_PATH})
-echo ${tool_name} > ${ASDF_PLUGIN_PATH}/tool_name 
+echo ${tool_url}/${tool_name} > ${ASDF_PLUGIN_PATH}/repo_url 
